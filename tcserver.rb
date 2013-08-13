@@ -18,6 +18,13 @@ class Tcserver < Formula
 
   def caveats; <<-EOS.undent
     By installing, you agree to comply with the license at http://www.gopivotal.com/pivotal-community-edition-software-license-agreement. If you disagree with these terms, please uninstall by typing "brew uninstall tcserver" in your terminal window.
+    
+    Usage:
+       To create a new tc Server instance (in current directory):
+          tcruntime-instance.sh create myinstance
+       
+       To control tc Server instance (in current directory):
+          tcruntime-ctl.sh myinstance start
     EOS
   end
 end
