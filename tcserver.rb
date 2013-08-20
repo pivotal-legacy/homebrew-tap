@@ -25,6 +25,9 @@ class Tcserver < Formula
        
        To control tc Server instance (in current directory):
           tcruntime-ctl.sh myinstance start
+          
+    Documentation:
+       https://www.vmware.com/support/pubs/vfabric-tcserver.html
     EOS
   end
 end
