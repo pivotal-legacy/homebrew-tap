@@ -5,7 +5,12 @@ class Tcserver < Formula
   url 'http://public.pivotal.com.s3.amazonaws.com/releases/tcserver/2.9.3.RELEASE/tcserver-2.9.3.RELEASE-developer.tar.gz'
   sha1 '2c4b412aa5c78c03a0193e13eb6eb44304dd21a7'
   version "2.9.3"
-
+  
+  # logs, lib and temp folder need to exist for base template to work
+  skip_clean 'libexec/templates/base/logs'
+  skip_clean 'libexec/templates/base/lib'
+  skip_clean 'libexec/templates/base/temp'
+  
   def install
     # Remove Windows scripts
     rm_rf Dir['**/*.bat']
@@ -14,6 +19,11 @@ class Tcserver < Formula
     prefix.install %w{ README.txt licenses/VMware_EULA_20120515b_English.txt licenses/vfabric-tc-server-developer-open-source-licenses-2.9.3.RELEASE.txt}
     libexec.install Dir['*']
     bin.install_symlink Dir["#{libexec}/*.sh"]
+    
+    # logs, lib and temp folder need to exist for base template to work
+    (libexec/'templates/base/logs').mkpath
+    (libexec/'templates/base/lib').mkpath
+    (libexec/'templates/base/temp').mkpath
   end
 
   def caveats; <<-EOS.undent
