@@ -11,3 +11,4 @@ First, add this tap to your Brew. This will to clone SpringSource tap repository
 Now you will be able to work on those formulae as if there were in canonical Homebrew repository:
 
     brew install tcserver
+    brew install gemfire
