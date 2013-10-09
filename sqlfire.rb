@@ -35,13 +35,13 @@ class Sqlfire < Formula
   end
 
   def caveats; <<-EOS.undent
-    By installing, you agree to comply with the license at http://gopivotal.com/pivotal-products/software-license-agreement. If you disagree with these terms, please uninstall by typing "brew uninstall sqlfire" in your terminal window.
     
     Usage:
        sqlf
           
     Documentation:
        https://www.vmware.com/support/pubs/vfabric-sqlfire.html
+
     EOS
   end
 end

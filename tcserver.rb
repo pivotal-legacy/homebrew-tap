@@ -45,7 +45,6 @@ class Tcserver < Formula
   end
 
   def caveats; <<-EOS.undent
-    By installing, you agree to comply with the license at http://gopivotal.com/software-developer-edition-eula. If you disagree with these terms, please uninstall by typing "brew uninstall tcserver" in your terminal window.
     
     Usage:
        To create a new tc Server instance (in current directory):
@@ -59,6 +58,7 @@ class Tcserver < Formula
           
     Documentation:
        https://www.vmware.com/support/pubs/vfabric-tcserver.html
+
     EOS
   end
 end
