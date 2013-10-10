@@ -1,6 +1,6 @@
 # SpringSource Homebrew Taps
 
-This a [brew](https://github.com/mxcl/homebrew) [tap](https://github.com/mxcl/homebrew/wiki/brew-tap) repository containing a collection of "formulae" for SpringSource commercial software. 
+This a [brew](https://github.com/mxcl/homebrew) [tap](https://github.com/mxcl/homebrew/wiki/brew-tap) repository containing a collection of "formulae" for Pivotal products. 
 
 ## Usage
 
