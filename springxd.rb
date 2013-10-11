@@ -25,7 +25,7 @@ class Springxd < Formula
     To start XD single node (runs in foreground): 
     xd-singlenode
 
-    To start XD admin and container separately (all runs in foreground):
+    To start XD admin and container separately (all run in foreground):
     redis-server
     xd-admin
     xd-container
