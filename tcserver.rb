@@ -42,6 +42,7 @@ class Tcserver < Formula
     Documentation:
        https://www.vmware.com/support/pubs/vfabric-tcserver.html
 
+    For inquiries about commercial licensing, support, training, and consulting, please contact us at tcserver@gopivotal.com
     EOS
   end
 end
