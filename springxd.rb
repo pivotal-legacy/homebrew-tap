@@ -17,6 +17,7 @@ class Springxd < Formula
     libexec.install Dir['*']
     bin.install_symlink Dir["#{libexec}/shell/bin/*"]
     bin.install_symlink Dir["#{libexec}/xd/bin/*"]
+    bin.install_symlink Dir["#{libexec}/gemfire/bin/*"]
   end
 
   def caveats; <<-EOS.undent
