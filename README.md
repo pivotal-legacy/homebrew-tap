@@ -1,4 +1,4 @@
-# SpringSource Homebrew Taps
+# Pivotal Homebrew Taps
 
 This a [brew](https://github.com/mxcl/homebrew) [tap](https://github.com/mxcl/homebrew/wiki/brew-tap) repository containing a collection of "formulae" for Pivotal products. 
 
@@ -12,3 +12,4 @@ Now you will be able to work on those formulae as if there were in canonical Hom
 
     brew install tcserver
     brew install gemfire
+
