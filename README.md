@@ -4,7 +4,7 @@ This a [brew](https://github.com/mxcl/homebrew) [tap](https://github.com/mxcl/ho
 
 ## Usage
 
-First, add this tap to your Brew. This will to clone SpringSource tap repository and symlink all its formulae.
+First, add this tap to your Brew. This will to clone Pivotal tap repository and symlink all its formulae.
 
     brew tap pivotal/tap
 
