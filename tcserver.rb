@@ -2,9 +2,9 @@ require 'formula'
 
 class Tcserver < Formula
   homepage 'http://www.gopivotal.com/?q=pivotal-products/pivotal-application-cloud-fabric/pivotal-tc-server'
-  url 'http://public.pivotal.com.s3.amazonaws.com/releases/tcserver/2.9.3.RELEASE/tcserver-2.9.3.RELEASE-developer.tar.gz'
-  sha1 '2c4b412aa5c78c03a0193e13eb6eb44304dd21a7'
-  version "2.9.3"
+  url 'http://public.pivotal.com.s3.amazonaws.com/releases/tcserver/2.9.4.RELEASE/tcserver-2.9.4.RELEASE-developer.tar.gz'
+  sha1 'da5241e067755d1418efb3d57d3e03550335d665'
+  version "2.9.4"
   
   # logs, lib and temp folder need to exist for base template to work
   skip_clean 'libexec/templates/base/logs'
@@ -16,7 +16,7 @@ class Tcserver < Formula
     rm_rf Dir['**/*.bat']
 
     # Install files
-    prefix.install %w{ README.txt licenses/VMware_EULA_20120515b_English.txt licenses/vfabric-tc-server-developer-open-source-licenses-2.9.3.RELEASE.txt}
+    prefix.install %w{ README.txt licenses/VMware_EULA_20120515b_English.txt licenses/vfabric-tc-server-developer-open-source-licenses-2.9.4.RELEASE.txt}
     libexec.install Dir['*']
     bin.install_symlink Dir["#{libexec}/*.sh"]
     
