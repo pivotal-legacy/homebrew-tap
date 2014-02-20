@@ -2,7 +2,7 @@ require 'formula'
 
 class Gemfire < Formula
   homepage 'http://gopivotal.com/products/pivotal-gemfire'
-  url 'http://downloads.cfapps.io/gemf_zip'
+  url 'https://download.pivotal.com.s3.amazonaws.com/gemfire/7.0.2/Pivotal_GemFire_702_b45797.zip'
   sha1 '69a138baa30e99d30fc98312e535481afd5c0ad8'
   version "7.0.2"
   
