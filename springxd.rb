@@ -2,7 +2,7 @@ require 'formula'
 
 class Springxd < Formula
   homepage 'http://projects.spring.io/spring-xd/'
-  url 'http://deq44nzfzkcur.cloudfront.net/simple/libs-milestone-local/org/springframework/xd/spring-xd/1.0.0.M5/spring-xd-1.0.0.M5-dist.zip'
+  url 'http://deq44nzfzkcur.cloudfront.net/simple/libs-milestone-local/org/springframework/xd/spring-xd/1.0.0.M5/spring-xd-1.0.0.M5-dist.zip' , :using => :curl
   sha1 '3d34600b24a2d52fc792ef448a0569a2c88bb8a5'
   version "1.0.0.M5"
   
