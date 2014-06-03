@@ -2,9 +2,9 @@ require 'formula'
 
 class Springxd < Formula
   homepage 'http://projects.spring.io/spring-xd/'
-  url 'http://deq44nzfzkcur.cloudfront.net/simple/libs-milestone-local/org/springframework/xd/spring-xd/1.0.0.M6/spring-xd-1.0.0.M6-dist.zip' , :using => :curl
-  sha1 'b2231bac756581ea6d71ecacefb139b9c2f69fc1'
-  version "1.0.0.M6"
+  url 'http://deq44nzfzkcur.cloudfront.net/simple/libs-staging-local/org/springframework/xd/spring-xd/1.0.0.M7/spring-xd-1.0.0.M7-dist.zip' , :using => :curl
+  sha1 '58e427550641b1fde13f54784d6ae33401c8d151'
+  version "1.0.0.M7"
 
   depends_on 'redis' => :optional
   depends_on 'rabbitmq' => :optional
@@ -43,7 +43,7 @@ class Springxd < Formula
         xd:> stream create --definition "time | log" --name ticktock
 
     Documentation:
-       http://docs.spring.io/spring-xd/docs/1.0.0.M6/reference/html
+       http://docs.spring.io/spring-xd/docs/1.0.0.M7/reference/html
 
     EOS
   end
