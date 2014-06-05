@@ -2,9 +2,9 @@ require 'formula'
 
 class Tcserver < Formula
   homepage 'http://www.gopivotal.com/?q=pivotal-products/pivotal-application-cloud-fabric/pivotal-tc-server'
-  url 'http://download.pivotal.com.s3.amazonaws.com/tcserver/2.9.5/vfabric-tc-server-developer-2.9.5.SR1.tar.gz'
-  sha1 'd26566b5713e44748c0417cfa5450dd0264c4c21'
-  version "2.9.5"
+  url 'http://download.pivotal.com.s3.amazonaws.com/tcserver/2.9.6/vfabric-tc-server-standard-2.9.6.RELEASE.tar.gz'
+  sha1 '1fed309cef7ff1a404a71ffc0a616734e08eb0ba'
+  version "2.9.6"
   
   # logs, lib and temp folder need to exist for base template to work
   skip_clean 'libexec/templates/base/logs'
