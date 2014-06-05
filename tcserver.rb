@@ -16,7 +16,7 @@ class Tcserver < Formula
     rm_rf Dir['**/*.bat']
 
     # Install files
-    prefix.install %w{ README.txt licenses/VMware_EULA_20120515b_English.txt licenses/vfabric-tc-server-developer-open-source-licenses-2.9.5.SR1.txt}
+    prefix.install %w{ README.txt licenses/VMware_EULA_20120515b_English.txt licenses/vfabric-tc-server-developer-open-source-licenses-2.9.6.txt}
     libexec.install Dir['*']
     bin.install_symlink Dir["#{libexec}/*.sh"]
     
