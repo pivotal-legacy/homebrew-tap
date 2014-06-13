@@ -7,6 +7,8 @@ class CloudfoundryCli < Formula
   version '6.1.2'
   sha1 '19df87677b92129f01e339e1f8f043831b6168d3'
 
+  depends_on :arch => :x86_64
+
   def install
     bin.install 'cf'
   end
