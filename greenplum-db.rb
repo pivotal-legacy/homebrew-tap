@@ -7,7 +7,7 @@ class GreenplumDb < Formula
 
   resource 'gpdbctl' do
     url 'http://chris.cheetham.com/gpdb/gpdbctl'
-    sha1 '35f9e5bc2b18dc552d7d48bc658528ff031896f0'
+    sha1 '7a037635031f7515ba32e6fb54b5d786a3d15690'
   end
 
   def install
@@ -32,7 +32,15 @@ class GreenplumDb < Formula
     If you disagree with these terms, please uninstall by typing:
         brew uninstall greenplum-db
 
-    To initialize GreenplumDB data directory, run
+    Next steps:
+
+    GreenplumDB requires modification to the OS X kernel parameters.
+    To have this script make those for you, run
+        gpdbctl kernel
+
+    Before GreenplumDB daemon can be started, its data directory and master
+    database need to be initialized.
+    To have this script initialize those for you, run
         gpdbctl init
 
     To start and stop GreenplumDB, run
