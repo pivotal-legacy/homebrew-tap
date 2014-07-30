@@ -8,6 +8,7 @@ class Springxd < Formula
 
   depends_on 'redis' => :optional
   depends_on 'rabbitmq' => :optional
+  depends_on 'zookeeper' => :optional
 
   def install
     # Remove Windows scripts
