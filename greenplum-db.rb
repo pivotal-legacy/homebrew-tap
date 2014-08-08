@@ -6,7 +6,10 @@ class GreenplumDb < Formula
   sha1 'a26df9bf2649f6083f19a44c42a84065448450a3'
 
   resource 'gpdbctl' do
-    url 'http://chris.cheetham.com/gpdb/gpdbctl'
+    tapdir = File.dirname(__FILE__)
+    extdir = File.basename(__FILE__, ".rb")
+    gpdbctl_url = "file:///#{File.join(tapdir, extdir, "gpdbctl")}"
+    url gpdbctl_url
     sha1 '7a037635031f7515ba32e6fb54b5d786a3d15690'
   end
 
@@ -35,12 +38,12 @@ class GreenplumDb < Formula
     Next steps:
 
     GreenplumDB requires modification to the OS X kernel parameters.
-    To have this script make those for you, run
+    To have me make those for you, run
         gpdbctl kernel
 
     Before GreenplumDB daemon can be started, its data directory and master
     database need to be initialized.
-    To have this script initialize those for you, run
+    To have me initialize those for you, run
         gpdbctl init
 
     To start and stop GreenplumDB, run
