@@ -32,10 +32,15 @@ class GreenplumDb < Formula
     If you disagree with these terms, please uninstall by typing:
         brew uninstall greenplum-db
 
-    To initialize system kernel parameter for GreenplumDB, run
+    Next steps:
+
+    GreenplumDB requires modification to the OS X kernel parameters.
+    To have this script make those for you, run
         gpdbctl kernel
 
-    To initialize GreenplumDB data directory, run
+    Before GreenplumDB daemon can be started, its data directory and master
+    database need to be initialized.
+    To have this script initialize those for you, run
         gpdbctl init
 
     To start and stop GreenplumDB, run
