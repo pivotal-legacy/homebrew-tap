@@ -7,7 +7,7 @@ class GreenplumDb < Formula
 
   resource 'gpdbctl' do
     url 'http://chris.cheetham.com/gpdb/gpdbctl'
-    sha1 '35f9e5bc2b18dc552d7d48bc658528ff031896f0'
+    sha1 '7a037635031f7515ba32e6fb54b5d786a3d15690'
   end
 
   def install
@@ -31,6 +31,9 @@ class GreenplumDb < Formula
  
     If you disagree with these terms, please uninstall by typing:
         brew uninstall greenplum-db
+
+    To initialize system kernel parameter for GreenplumDB, run
+        gpdbctl kernel
 
     To initialize GreenplumDB data directory, run
         gpdbctl init
