@@ -2,7 +2,7 @@ require 'formula'
 
 class GreenplumDb < Formula
   homepage 'http://www.pivotal.io/big-data/pivotal-greenplum-database'
-  url 'http://chris.cheetham.com/gpdb/greenplum-db-4.2.8.0.tar.gz'
+  url 'http://dist.vfabric.com.s3.amazonaws.com/greenplum-db-4.2.8.0.tar.gz'
   sha1 'a26df9bf2649f6083f19a44c42a84065448450a3'
 
   resource 'gpdbctl' do
