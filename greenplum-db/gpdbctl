@@ -110,6 +110,18 @@ EOF
 }
 
 init() {
+    if [[ -d $gpdata ]] ; then
+        echo >&2
+        echo "Error: GreenplumDB data directory already exists" >&2
+        echo >&2
+        echo "To reinitialize, remove the directory:" >&2
+        echo -e "\t$gpdata" >&2
+        echo "then rerun:" >&2
+        echo -e "\t$(basename $0) init" >&2
+        echo >&2
+        exit 1
+    fi
+
     echo "GreenplumDB initialization assumes you have set up your ssh keys"
     echo "so that you can log into this host without having to provide a"
     echo "password.  If you have not set up your ssh keys, exit now."
@@ -156,14 +168,18 @@ init() {
 
 start() {
     if [[ ! -d $gpdata ]] ; then
-        echo "GreenplumDB data directory not intialized." >&2
-        echo "Run init command to initialize." >&2
+        echo >&2
+        echo "Error: GreenplumDB data directory not initialized" >&2
+        echo >&2
+        echo "To initialize, run the command:" >&2
+        echo -e "\t$(basename $0) init" >&2
+        echo >&2
         exit 1
     fi
     yes | MASTER_DATA_DIRECTORY=$gpdata/db/gpmaster/gpsne-1 gpstart
     echo
-    echo "To stop the GreenplumDB daemon, run"
-    echo "    gpdbctl stop"
+    echo "To stop the GreenplumDB daemon, run:"
+    echo -e "\tgpdbctl stop"
     echo
 }
 
