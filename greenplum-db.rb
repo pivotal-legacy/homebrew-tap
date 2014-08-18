@@ -8,9 +8,8 @@ class GreenplumDb < Formula
   resource 'gpdbctl' do
     tapdir = File.dirname(__FILE__)
     extdir = File.basename(__FILE__, ".rb")
-    gpdbctl_url = "file:///#{File.join(tapdir, extdir, "gpdbctl")}"
-    url gpdbctl_url
-    sha1 '7a037635031f7515ba32e6fb54b5d786a3d15690'
+    url "file:///#{File.join(tapdir, extdir, "gpdbctl")}"
+    sha1 '23e1062dd0a6633c33b8018dd79a206ef0ad2c74'
   end
 
   def install
@@ -37,20 +36,20 @@ class GreenplumDb < Formula
 
     Next steps:
 
-    1. Enable remote login
-       System Preferences -> Sharing -> Check "Remove Login"
+    1. Enable remote login:
+           System Preferences -> Sharing -> Check "Remove Login"
       
     2. GreenplumDB requires modification to the OS X kernel parameters.
-       To have me make those for you, run
-        gpdbctl kernel
+       To have me make those for you, run:
+           gpdbctl kernel
 
     3. Before GreenplumDB daemon can be started, its data directory and master
-    database need to be initialized.
-       To have me initialize those for you, run
-        gpdbctl init
+       database need to be initialized.
+       To have me initialize those for you, run:
+           gpdbctl init
 
-    4. To start and stop GreenplumDB, run
-        gpdbctl start|stop
+    4. To start and stop GreenplumDB, run:
+           gpdbctl start|stop
 
     EOS
     return s
