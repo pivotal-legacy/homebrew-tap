@@ -1,31 +1,56 @@
 require 'formula'
 
 class GreenplumDb < Formula
-  homepage 'http://gopivotal.com/products/pivotal-greenplum-database'
-  url 'http://dist.vfabric.com.s3.amazonaws.com/greenplum-db-4.2.2.4.tgz'
-  sha1 '0e66a34da5bb361ebd917a737ec98483c64c4eae'
-  version "4.2.2.4"
-  
+  homepage 'http://www.pivotal.io/big-data/pivotal-greenplum-database'
+  url 'http://dist.vfabric.com.s3.amazonaws.com/greenplum-db-4.2.8.0.tar.gz'
+  sha1 'a26df9bf2649f6083f19a44c42a84065448450a3'
+
+  resource 'gpdbctl' do
+    tapdir = File.dirname(__FILE__)
+    extdir = File.basename(__FILE__, ".rb")
+    gpdbctl_url = "file:///#{File.join(tapdir, extdir, "gpdbctl")}"
+    url gpdbctl_url
+    sha1 '7a037635031f7515ba32e6fb54b5d786a3d15690'
+  end
+
   def install
-    # Install files
-    prefix.install Dir['*']
-    safe_system "ln -sf #{prefix} /usr/local/greenplum-db-#{version}"
-    safe_system "ln -sf #{prefix} /usr/local/greenplum-db"
+    libexec.install Dir['*']
+    resource('gpdbctl').stage { bin.install 'gpdbctl' }
+    inreplace "#{bin}/gpdbctl", /%%GPDATA%%/,\
+      "#{ENV["HOMEBREW_PREFIX"]}/var/greenplum"
+    inreplace "#{bin}/gpdbctl", /%%GPHOME%%/, "#{libexec}"
+    inreplace "#{libexec}/greenplum_path.sh", /%%GPHOME%%/, "#{libexec}"
+    inreplace "#{libexec}/bin/lib/gp_bash_functions.sh", /gnutar/, "tar"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats
+    s = <<-EOS.undent
 
-GreenplumDB formula is currently a beta version and UNSUPPORTED. Use it at your own risk.
-By installing, you agree to comply with the license at http://www.gopivotal.com/pivotal-products/software-license-agreement. If you disagree with these terms, please uninstall by typing "brew uninstall greenplum-db".
+    GreenplumDB formula is currently a beta version and UNSUPPORTED. Use it at
+    your own risk.
+ 
+    By installing, you agree to comply with the license at:
+        http://www.pivotal.io/products/software-license-agreement
+ 
+    If you disagree with these terms, please uninstall by typing:
+        brew uninstall greenplum-db
 
-To configure and start GreenplumDB please run following:
-    /usr/local/greenplum-db/install-gpdb.sh
+    Next steps:
 
+    GreenplumDB requires modification to the OS X kernel parameters.
+    To have me make those for you, run
+        gpdbctl kernel
 
-To stop and uninstall GreenplumDB please run following:
-    /usr/local/greenplum-db/stop-gpdb.sh
-    brew uninstall greenplum-db
+    Before GreenplumDB daemon can be started, its data directory and master
+    database need to be initialized.
+    To have me initialize those for you, run
+        gpdbctl init
 
-EOS
+    To start and stop GreenplumDB, run
+        gpdbctl start|stop
+
+    EOS
+    return s
   end
+
 end
