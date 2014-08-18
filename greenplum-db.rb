@@ -37,16 +37,19 @@ class GreenplumDb < Formula
 
     Next steps:
 
-    GreenplumDB requires modification to the OS X kernel parameters.
-    To have me make those for you, run
+    1. Enable remote login
+       System Preferences -> Sharing -> Check "Remove Login"
+      
+    2. GreenplumDB requires modification to the OS X kernel parameters.
+       To have me make those for you, run
         gpdbctl kernel
 
-    Before GreenplumDB daemon can be started, its data directory and master
+    3. Before GreenplumDB daemon can be started, its data directory and master
     database need to be initialized.
-    To have me initialize those for you, run
+       To have me initialize those for you, run
         gpdbctl init
 
-    To start and stop GreenplumDB, run
+    4. To start and stop GreenplumDB, run
         gpdbctl start|stop
 
     EOS
