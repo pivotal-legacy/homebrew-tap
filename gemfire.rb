@@ -1,17 +1,17 @@
 require 'formula'
 
 class Gemfire < Formula
-  homepage 'http://gopivotal.com/products/pivotal-gemfire'
-  url 'http://downloads.cfapps.io/gemf_zip'
-  sha1 '69a138baa30e99d30fc98312e535481afd5c0ad8'
-  version "7.0.2"
+  homepage 'http://www.pivotal.io/big-data/pivotal-gemfire'
+  url 'http://download.pivotal.com.s3.amazonaws.com/gemfire/8.0.0/Pivotal_GemFire_800_b48398_Linux.zip'
+  sha1 'a117214aeb07a20893649eabf295fca77b30ed0b'
+  version "8.0.0"
   
   def install
     # Remove Windows scripts
     rm_rf Dir['**/*.bat']
 
     # Install files
-    prefix.install %w{ EULA.txt lib/open_source_licenses-Pivotal_GemFire_7.0.2.txt}
+    prefix.install %w{ EULA.txt lib/open_source_licenses-Pivotal_GemFire_8.0.txt}
     libexec.install Dir['*']
     bin.write_exec_script libexec/'bin/agent'
     bin.write_exec_script libexec/'bin/cacheserver'
@@ -20,7 +20,7 @@ class Gemfire < Formula
   end
 
   def caveats; <<-EOS.undent
-    By installing, you agree to comply with the license at http://gopivotal.com/products/software-license-agreement. If you disagree with these terms, please uninstall by typing "brew uninstall gemfire" in your terminal window.
+    By installing, you agree to comply with the license at http://www.pivotal.io/products/software-license-agreement. If you disagree with these terms, please uninstall by typing "brew uninstall gemfire" in your terminal window.
 
     Usage:
        gfsh
@@ -29,7 +29,7 @@ class Gemfire < Formula
        agent
           
     Documentation:
-       http://docs.gopivotal.com/gemfire/index.html
+       http://gemfire.docs.pivotal.io/index.html
 
     EOS
   end
