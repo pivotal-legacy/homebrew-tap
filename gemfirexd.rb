@@ -1,6 +1,6 @@
 require 'formula'
 
-class GemfireXD < Formula
+class Gemfirexd < Formula
   homepage 'http://www.pivotal.io/big-data/pivotal-hd'
   url 'http://download.pivotal.com.s3.amazonaws.com/gemfirexd/1.3.0/Pivotal_GemFireXD_130_b48613_Linux.zip'
   sha1 'bd2c6911f8a9b684a43e705e752e4c89cd0d2ef7'
