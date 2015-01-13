@@ -2,16 +2,16 @@ require 'formula'
 
 class Gemfirexd < Formula
   homepage 'http://www.pivotal.io/big-data/pivotal-gemfire-xd'
-  url 'http://download.pivotal.com.s3.amazonaws.com/gemfirexd/1.3.1/Pivotal_GemFireXD_131_b49833_Linux.zip'
-  sha1 '1ebf1cefd757363eb9512ffeb48b5a64d39095d8'
-  version "1.3.1"
+  url 'http://download.pivotal.com.s3.amazonaws.com/gemfirexd/1.4.0/Pivotal_GemFireXD_140_b50226_Linux.zip'
+  sha1 '9856f8f2eaa9b3f5e46d4112ec757f077fb0af10'
+  version "1.4.0"
   
   def install
     # Remove Windows scripts
     rm_rf Dir['**/*.bat']
 
     # Install files
-    prefix.install %w{ EULA.txt lib/open_source_licenses-Pivotal_GemFireXD_1.3.1.txt}
+    prefix.install %w{ EULA.txt lib/open_source_licenses-Pivotal_GemFireXD_1.4.0.txt}
     libexec.install Dir['*']
     bin.write_exec_script libexec/'bin/color'
     bin.write_exec_script libexec/'bin/dataextractloader'
