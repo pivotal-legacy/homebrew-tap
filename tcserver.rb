@@ -1,10 +1,10 @@
 require 'formula'
 
 class Tcserver < Formula
-  homepage 'http://www.gopivotal.com/?q=pivotal-products/pivotal-application-cloud-fabric/pivotal-tc-server'
-  url 'http://public.pivotal.com.s3.amazonaws.com/releases/tcserver/3.0.2.RELEASE/tcserver-3.0.2.RELEASE-developer.tar.gz'
-  sha1 'd48c5728d09f043d6d511536f5bb311dca01449e'
-  version "3.0.2"
+  homepage 'http://tcserver.docs.pivotal.io/index.html'
+  url 'http://public.pivotal.com.s3.amazonaws.com/releases/tcserver/3.1.0.RELEASE/tcserver-3.1.0.RELEASE-developer.tar.gz'
+  sha1 'ffe9d5495a6e752d4cc8fd7fd67b56c2f3969dc9'
+  version "3.1.0"
   
   # logs, lib and temp folder need to exist for base template to work
   skip_clean 'libexec/templates/base/logs'
@@ -16,7 +16,7 @@ class Tcserver < Formula
     rm_rf Dir['**/*.bat']
 
     # Install files
-    prefix.install %w{ README.txt licenses/Pivotal_EULA.txt licenses/pivotal-tc-server-developer-open-source-licenses-3.0.2.RELEASE.txt}
+    prefix.install %w{ README.txt licenses/Pivotal_EULA.txt licenses/pivotal-tc-server-developer-open-source-licenses-3.1.0.RELEASE.txt}
     libexec.install Dir['*']
     bin.install_symlink Dir["#{libexec}/*.sh"]
     
@@ -27,7 +27,7 @@ class Tcserver < Formula
   end
 
   def caveats; <<-EOS.undent
-    By installing, you agree to comply with the license at http://www.pivotal.io/tc-dev-edition-eula. If you disagree with these terms, please uninstall by typing "brew uninstall tcserver" in your terminal window.
+    By installing, you agree to comply with the license at https://network.pivotal.io/pivotal_software_eula. If you disagree with these terms, please uninstall by typing "brew uninstall tcserver" in your terminal window.
  
     Usage:
        To create a new tc Server instance (in current directory):
