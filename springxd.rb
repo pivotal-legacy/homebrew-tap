@@ -4,7 +4,7 @@ class Springxd < Formula
   homepage 'http://projects.spring.io/spring-xd/'
   url 'http://repo.spring.io/release/org/springframework/xd/spring-xd/1.2.0.RELEASE/spring-xd-1.2.0.RELEASE-dist.zip' , :using => :curl
   sha1 'e776ca3adc67ad54e1c1b107d9c6e1f472ccf67e'
-  version "1.1.2.RELEASE"
+  version "1.2.0.RELEASE"
 
   depends_on 'redis' => :optional
   depends_on 'rabbitmq' => :optional
