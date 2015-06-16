@@ -2,8 +2,8 @@ require 'formula'
 
 class Springxd < Formula
   homepage 'http://projects.spring.io/spring-xd/'
-  url 'http://repo.spring.io/release/org/springframework/xd/spring-xd/1.1.2.RELEASE/spring-xd-1.1.2.RELEASE-dist.zip' , :using => :curl
-  sha1 '1838bd27b461e69617161537e0fa5ba754b491cc'
+  url 'http://repo.spring.io/release/org/springframework/xd/spring-xd/1.2.0.RELEASE/spring-xd-1.2.0.RELEASE-dist.zip' , :using => :curl
+  sha1 'e776ca3adc67ad54e1c1b107d9c6e1f472ccf67e'
   version "1.1.2.RELEASE"
 
   depends_on 'redis' => :optional
@@ -44,7 +44,7 @@ class Springxd < Formula
         xd:> stream create --definition "time | log" --name ticktock
 
     Documentation:
-       http://docs.spring.io/spring-xd/docs/1.1.2.RELEASE/reference/html/
+       http://docs.spring.io/spring-xd/docs/1.2.0.RELEASE/reference/html/
 
     EOS
   end
