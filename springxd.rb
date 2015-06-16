@@ -3,7 +3,7 @@ require 'formula'
 class Springxd < Formula
   homepage 'http://projects.spring.io/spring-xd/'
   url 'http://repo.spring.io/release/org/springframework/xd/spring-xd/1.2.0.RELEASE/spring-xd-1.2.0.RELEASE-dist.zip' , :using => :curl
-  sha1 'e776ca3adc67ad54e1c1b107d9c6e1f472ccf67e'
+  sha1 'aadaccc32ba6223244642cb3aa911d54ef69719a'
   version "1.2.0.RELEASE"
 
   depends_on 'redis' => :optional
