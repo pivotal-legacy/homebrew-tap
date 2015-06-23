@@ -2,9 +2,9 @@ require 'formula'
 
 class Tcserver < Formula
   homepage 'http://tcserver.docs.pivotal.io/index.html'
-  url 'http://public.pivotal.com.s3.amazonaws.com/releases/tcserver/3.1.0.RELEASE/tcserver-3.1.0.RELEASE-developer.tar.gz'
-  sha1 'ffe9d5495a6e752d4cc8fd7fd67b56c2f3969dc9'
-  version "3.1.0"
+  url 'http://public.pivotal.com.s3.amazonaws.com/releases/tcserver/3.1.1.RELEASE/tcserver-3.1.1.RELEASE-developer.tar.gz'
+  sha1 '5f3008d7110b3f2d4569ee7db780b0143bf04449'
+  version "3.1.1"
   
   # logs, lib and temp folder need to exist for base template to work
   skip_clean 'libexec/templates/base/logs'
@@ -16,7 +16,7 @@ class Tcserver < Formula
     rm_rf Dir['**/*.bat']
 
     # Install files
-    prefix.install %w{ README.txt licenses/Pivotal_EULA.txt licenses/pivotal-tc-server-developer-open-source-licenses-3.1.0.RELEASE.txt}
+    prefix.install %w{ README.txt licenses/Pivotal_EULA.txt licenses/open-source-licenses.txt}
     libexec.install Dir['*']
     bin.install_symlink Dir["#{libexec}/*.sh"]
     
@@ -40,7 +40,7 @@ class Tcserver < Formula
           tcruntime-ctl.sh myinstance start
           
     Documentation:
-       http://docs.pivotal.io/tcserver
+       http://tcserver.docs.pivotal.io/
 
     For inquiries about commercial licensing, support, training, and consulting, please contact us at tcserver@pivotal.io
     EOS
