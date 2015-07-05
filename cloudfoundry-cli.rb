@@ -5,7 +5,7 @@ class CloudfoundryCli < Formula
   head 'https://cli.run.pivotal.io/edge?arch=macosx64&source=homebrew'
   url 'https://cli.run.pivotal.io/stable?release=macosx64-binary&version=6.12.0&source=homebrew'
   version '6.12.0'
-  sha1 '8dfca97225499195b5ce9bbfb9f38f423fba78c0'
+  sha1 '320e1e412f9d489acfc00043803643945eb33799'
 
   depends_on :arch => :x86_64
 
