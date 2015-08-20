@@ -2,16 +2,16 @@ require 'formula'
 
 class Gemfire < Formula
   homepage 'http://www.pivotal.io/big-data/pivotal-gemfire'
-  url 'http://download.pivotal.com.s3.amazonaws.com/gemfire/8.1.0/Pivotal_GemFire_810_b50625_Linux.zip'
-  sha1 'e7d57b9c5d7a3eb265e5061d8ffd56b922b5d6fc'
-  version "8.1.0"
+  url 'http://download.pivotal.com.s3.amazonaws.com/gemfire/8.2.0/Pivotal_GemFire_820_b17919_Linux.zip'
+  sha1 'f8919c6c2d68054bb55df5aa96e3fbbffe54925e'
+  version "8.2.0"
   
   def install
     # Remove Windows scripts
     rm_rf Dir['**/*.bat']
 
     # Install files
-    prefix.install %w{ EULA.txt lib/open_source_licenses-Pivotal_GemFire_8.1.0.txt}
+    prefix.install %w{ EULA.txt lib/open_source_licenses-Pivotal_GemFire_8.2.0.txt}
     libexec.install Dir['*']
     bin.write_exec_script libexec/'bin/agent'
     bin.write_exec_script libexec/'bin/cacheserver'
