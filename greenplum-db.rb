@@ -37,7 +37,7 @@ class GreenplumDb < Formula
     Next steps:
 
     1. Enable remote login:
-           System Preferences -> Sharing -> Check "Remove Login"
+           System Preferences -> Sharing -> Check "Remote Login"
       
     2. GreenplumDB requires modification to the OS X kernel parameters.
        To have me make those for you, run:
