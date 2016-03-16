@@ -1,4 +1,3 @@
 {
-  "bosh-init": "cloudfoundry/tap",
-  "cf-cli": "cloudfoundry/tap"
+  "bosh-init": "cloudfoundry/tap"
 }
