@@ -3,7 +3,7 @@ require 'formula'
 class Tcserver < Formula
   homepage 'http://tcserver.docs.pivotal.io/index.html'
   url 'http://public.pivotal.com.s3.amazonaws.com/releases/tcserver/3.1.5.RELEASE/tcserver-3.1.5.RELEASE-developer.tar.gz'
-  sha1 '8a1607e06d523cd2a13ed2ef429cfe494572b762'
+  sha256 '73ad57d4ebc0b323b05e37b53fb3dd4b497e63ed7e19a3b5233e09e7aa9ccd04'
   version "3.1.5"
   
   # logs, lib and temp folder need to exist for base template to work
