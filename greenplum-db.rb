@@ -3,13 +3,13 @@ require 'formula'
 class GreenplumDb < Formula
   homepage 'http://www.pivotal.io/big-data/pivotal-greenplum-database'
   url 'http://dist.vfabric.com.s3.amazonaws.com/greenplum-db-4.2.8.0.tar.gz'
-  sha1 'a26df9bf2649f6083f19a44c42a84065448450a3'
+  sha256'60c925b3ba9e17a0d67b37fdb03d352ee1c4b7a80ebf10095e0ce78b2f3b6d1c'
 
   resource 'gpdbctl' do
     tapdir = File.dirname(__FILE__)
     extdir = File.basename(__FILE__, ".rb")
     url "file:///#{File.join(tapdir, extdir, "gpdbctl")}"
-    sha1 '23e1062dd0a6633c33b8018dd79a206ef0ad2c74'
+    sha256 'b19788663f02ecffd24af61c8445d33b64fbbcacc8ef7820bb1b912bd61472bc'
   end
 
   def install
