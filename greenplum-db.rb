@@ -3,7 +3,7 @@ require 'formula'
 class GreenplumDb < Formula
   homepage 'http://www.pivotal.io/big-data/pivotal-greenplum-database'
   url 'http://dist.vfabric.com.s3.amazonaws.com/greenplum-db-4.2.8.0.tar.gz'
-  sha256'60c925b3ba9e17a0d67b37fdb03d352ee1c4b7a80ebf10095e0ce78b2f3b6d1c'
+  sha256 '60c925b3ba9e17a0d67b37fdb03d352ee1c4b7a80ebf10095e0ce78b2f3b6d1c'
 
   resource 'gpdbctl' do
     tapdir = File.dirname(__FILE__)
