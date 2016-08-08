@@ -3,7 +3,7 @@ require 'formula'
 class Sqlfire < Formula
   homepage 'http://gopivotal.com/products/pivotal-sqlfire'
   url 'http://download.pivotal.com.s3.amazonaws.com/sqlfire/1.1.2/Pivotal_SQLFire_112_b45732.zip'
-  sha1 '743280517fbf02bb7d38c1748a3a0b6b36cb9d7d'
+  sha256 '4107e9ee5acf246fa633e7314adddb5f9e97ae24857b0a7429625864bc4d851c'
   version "1.1.2"
   
   def install

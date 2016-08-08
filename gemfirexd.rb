@@ -3,7 +3,7 @@ require 'formula'
 class Gemfirexd < Formula
   homepage 'http://www.pivotal.io/big-data/pivotal-gemfire-xd'
   url 'http://download.pivotal.com.s3.amazonaws.com/gemfirexd/1.4.1/Pivotal_GemFireXD_141_b042215_Linux.zip'
-  sha1 'f50d50a117d8aadf481c745fa61c97e45e140e37'
+  sha256 '305fcd374c631e81f5f4965d6fe2f1e491380a4f30219117f50a87850841b35b'
   version "1.4.1"
   
   def install
