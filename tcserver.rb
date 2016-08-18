@@ -31,13 +31,17 @@ class Tcserver < Formula
  
     Usage:
        To create a new tc Server instance (in current directory):
-          tcruntime-instance.sh create myinstance
+          > tcruntime-instance.sh create myinstance
           
        To create a new tc Server instance with Spring Insight monitoring:
-          tcruntime-instance.sh create myinstance -t insight 
+       
+          Retrieve the Spring Insight Developer template from the Template Repository:
+             > tcruntime-admin.sh get-template spring-insight-developer
+          Create the instance with the Spring Insight template name:
+             > tcruntime-instance.sh create myinstance -t insight 
        
        To control tc Server instance (in current directory):
-          tcruntime-ctl.sh myinstance start
+          > tcruntime-ctl.sh myinstance start
           
     Documentation:
        http://tcserver.docs.pivotal.io/
