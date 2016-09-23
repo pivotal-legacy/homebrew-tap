@@ -2,9 +2,9 @@ require 'formula'
 
 class PivnetCli < Formula
   homepage 'https://github.com/pivotal-cf/go-pivnet'
-  version "0.0.22"
+  version "0.0.23"
   url "https://github.com/pivotal-cf/go-pivnet/releases/download/v#{version}/pivnet-darwin-amd64-#{version}"
-  sha256 "a127bbe94d584e5ee2fe30af58b9aad7c7a0acfe071f099b91a0669579d92234"
+  sha256 "98ef598c6571a005beaafdb6abfdb0ed4dbb278ea23da21e4d22b6909e609948"
 
   depends_on :arch => :x86_64
 
