@@ -2,9 +2,9 @@ require 'formula'
 
 class Tcserver < Formula
   homepage 'http://tcserver.docs.pivotal.io/index.html'
-  url 'http://public.pivotal.com.s3.amazonaws.com/releases/tcserver/3.2.0.RELEASE/tcserver-3.2.0.RELEASE-developer.tar.gz'
-  sha256 'dab0078ad3124d53c2d918e56a6e23f4361d56c603783bedd6f7a3fcb5a8e4e7'
-  version "3.2.0"
+  url 'http://public.pivotal.com.s3.amazonaws.com/releases/tcserver/3.2.1.RELEASE/tcserver-3.2.1.RELEASE-developer.tar.gz'
+  sha256 '37aeafaacd151a7849c9ebaac24acbb883c0c656f14a3f7595912f97d0e368db'
+  version "3.2.1"
   
   # logs, lib and temp folder need to exist for base template to work
   skip_clean 'libexec/templates/base/logs'
