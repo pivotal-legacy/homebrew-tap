@@ -2,9 +2,9 @@ require 'formula'
 
 class Gemfire < Formula
   homepage 'http://www.pivotal.io/big-data/pivotal-gemfire'
-  url 'http://download.pivotal.com.s3.amazonaws.com/gemfire/8.2.1/Pivotal_GemFire_821_b18207_Linux.zip'
-  sha256 '16bb872b263f259de97008b6464607c6c5990ce71aef12caa4e77446c01cfd13'
-  version "8.2.1"
+  url 'http://download.pivotal.com.s3.amazonaws.com/gemfire/8.2.2/Pivotal_GemFire_822_b18324_Linux.zip'
+  sha256 '9def11afcc74ec03b0a82d4efc22392bcdd51afda422b9b4c25f218dc0e2bdd8'
+  version "8.2.2"
   
   def install
     # Remove Windows scripts
