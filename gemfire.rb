@@ -2,21 +2,20 @@ require 'formula'
 
 class Gemfire < Formula
   homepage 'http://www.pivotal.io/big-data/pivotal-gemfire'
-  url 'http://download.pivotal.com.s3.amazonaws.com/gemfire/8.2.2/Pivotal_GemFire_822_b18324_Linux.zip'
-  sha256 '9def11afcc74ec03b0a82d4efc22392bcdd51afda422b9b4c25f218dc0e2bdd8'
-  version "8.2.2"
+  url 'http://download.pivotal.com.s3.amazonaws.com/gemfire/9.0.0/pivotal-gemfire-9.0.0.zip'
+  sha256 'd08f15f31b376aecc8fce0b3aef24aab5d35ecaec4ca7a259b27a2afbeed03b3'
+  version "9.0.0"
   
-  def install
-    # Remove Windows scripts
-    rm_rf Dir['**/*.bat']
+  bottle :unneeded
 
-    # Install files
-    prefix.install %w{ EULA.txt lib/open_source_licenses-Pivotal_GemFire_8.2.1.txt}
-    libexec.install Dir['*']
-    bin.write_exec_script libexec/'bin/agent'
-    bin.write_exec_script libexec/'bin/cacheserver'
-    bin.write_exec_script libexec/'bin/gemfire'
-    bin.write_exec_script libexec/'bin/gfsh'
+  depends_on :java => "1.8"
+
+  def install
+    rm_f "bin/gfsh.bat"
+    prefix.install %w{ Pivotal-EULA Pivotal-OSL }
+    bash_completion.install "bin/gfsh-completion.bash" => "gfsh"
+    libexec.install Dir["*"]
+    (bin/"gfsh").write_env_script libexec/"bin/gfsh", Language::Java.java_home_env("1.8")
   end
 
   def caveats; <<-EOS.undent
@@ -24,10 +23,7 @@ class Gemfire < Formula
 
     Usage:
        gfsh
-       cacheserver
-       gemfire
-       agent
-          
+
     Documentation:
        http://gemfire.docs.pivotal.io/index.html
 
