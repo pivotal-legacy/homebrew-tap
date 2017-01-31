@@ -4,7 +4,7 @@ class Gemfire < Formula
   homepage 'http://www.pivotal.io/big-data/pivotal-gemfire'
   url 'http://download.pivotal.com.s3.amazonaws.com/gemfire/9.0.1/pivotal-gemfire-9.0.1.zip'
   sha256 '45ffc4c71c38343a9cfaa5b84f45458d855654f9cc2c330ecc36ac922e102a37'
-  version "9.0.1"
+  version '9.0.1'
   
   bottle :unneeded
 
