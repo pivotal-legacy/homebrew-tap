@@ -19,7 +19,7 @@ class Gemfire < Formula
   end
 
   def caveats; <<-EOS.undent
-    By installing, you agree to comply with the license at http://www.pivotal.io/products/software-license-agreement. If you disagree with these terms, please uninstall by typing "brew uninstall gemfire" in your terminal window.
+    By installing, you agree to comply with the license at https://network.pivotal.io/pivotal_software_eula. If you disagree with these terms, please uninstall by typing "brew uninstall gemfire" in your terminal window.
 
     Usage:
        gfsh
