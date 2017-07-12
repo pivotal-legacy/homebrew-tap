@@ -1,58 +1,125 @@
 require 'formula'
 
 class GreenplumDb < Formula
-  homepage 'http://www.pivotal.io/big-data/pivotal-greenplum-database'
-  url 'http://dist.vfabric.com.s3.amazonaws.com/greenplum-db-4.2.8.0.tar.gz'
-  sha256 '60c925b3ba9e17a0d67b37fdb03d352ee1c4b7a80ebf10095e0ce78b2f3b6d1c'
+  desc "Greenplum Database"
+  homepage "http://greenplum.org"
+  head "https://github.com/greenplum-db/gpdb.git"
+  url "https://github.com/greenplum-db/gpdb/archive/5.0.0-beta.2.tar.gz"
+  sha256 "d43e62cf99cd1d2ee9b1e00ad80e4e491defe1cb7cfeecf142ecd60f88bffa29"
 
-  resource 'gpdbctl' do
-    tapdir = File.dirname(__FILE__)
-    extdir = File.basename(__FILE__, ".rb")
-    url "file:///#{File.join(tapdir, extdir, "gpdbctl")}"
-    sha256 'b19788663f02ecffd24af61c8445d33b64fbbcacc8ef7820bb1b912bd61472bc'
-  end
+  depends_on "cmake" => :build # orca build
+  depends_on "ninja" => :build # orca build
+  depends_on "libyaml" => :build # --enable-mapreduce
+  depends_on "libevent" => :build # gpfdist
+  depends_on "apr" => :build # gpperfmon
+  depends_on "apr-util" => :build #gppermon
+  depends_on "python" => :run
+  depends_on "go" => :optional
+  depends_on "gdb" => :optional
 
   def install
-    libexec.install Dir['*']
-    resource('gpdbctl').stage { bin.install 'gpdbctl' }
-    inreplace "#{bin}/gpdbctl", /%%GPDATA%%/,\
-      "#{ENV["HOMEBREW_PREFIX"]}/var/greenplum"
-    inreplace "#{bin}/gpdbctl", /%%GPHOME%%/, "#{libexec}"
-    inreplace "#{libexec}/greenplum_path.sh", /%%GPHOME%%/, "#{libexec}"
-    inreplace "#{libexec}/bin/lib/gp_bash_functions.sh", /gnutar/, "tar"
+    # additional pip dependencies to run
+    system "pip", "install", "lockfile",
+                             "psi",
+                             "paramiko",
+                             "pysql",
+                             "psutil",
+                             "setuptools",
+                             "unittest2",
+                             "parse",
+                             "pexpect",
+                             "mock",
+                             "pyyaml",
+                             "git+https://github.com/behave/behave@v1.2.4",
+                             "pylint"
+
+    system "./configure", "--disable-orca",
+                          "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}"
+
+    system "make", "install"
+    
+    system "mkdir", "#{prefix}/demo"
+    system "cp", "gpAux/gpdemo/demo_cluster.sh", "#{prefix}/demo"
+    system "cp", "gpAux/gpdemo/lalshell", "#{prefix}/demo"
+    system "cp", "gpAux/gpdemo/Makefile", "#{prefix}/demo"
   end
 
-  def caveats
-    s = <<-EOS.undent
+  def caveats; <<-EOS.undent
+    Congratulations! A copy of GPDB is installed under #{prefix}.
 
-    GreenplumDB formula is currently a beta version and UNSUPPORTED. Use it at
-    your own risk.
- 
-    By installing, you agree to comply with the license at:
-        http://www.pivotal.io/products/software-license-agreement
- 
-    If you disagree with these terms, please uninstall by typing:
-        brew uninstall greenplum-db
+    1. enable `Remote Login` under `System Preferences -> Sharing`
+    2. setup the ssh, with following example
 
-    Next steps:
+    ssh-keygen
+    cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+    chmod 600 ~/.ssh/authorized_keys
 
-    1. Enable remote login:
-           System Preferences -> Sharing -> Check "Remote Login"
-      
-    2. GreenplumDB requires modification to the OS X kernel parameters.
-       To have me make those for you, run:
-           gpdbctl kernel
+    3. run the following scripts to setup environment
+    ```
+    #!/bin/bash
+    echo 127.0.0.1$'\t'$HOSTNAME | sudo tee -a /etc/hosts
 
-    3. Before GreenplumDB daemon can be started, its data directory and master
-       database need to be initialized.
-       To have me initialize those for you, run:
-           gpdbctl init
+    # OS settings
+    sudo sysctl -w kern.sysv.shmmax=2147483648
+    sudo sysctl -w kern.sysv.shmmin=1
+    sudo sysctl -w kern.sysv.shmmni=64
+    sudo sysctl -w kern.sysv.shmseg=16
+    sudo sysctl -w kern.sysv.shmall=524288
+    sudo sysctl -w net.inet.tcp.msl=60
 
-    4. To start and stop GreenplumDB, run:
-           gpdbctl start|stop
+    sudo sysctl -w net.local.dgram.recvspace=262144
+    sudo sysctl -w net.local.dgram.maxdgram=16384
+    sudo sysctl -w kern.maxfiles=131072
+    sudo sysctl -w kern.maxfilesperproc=131072
+    sudo sysctl -w net.inet.tcp.sendspace=262144
+    sudo sysctl -w net.inet.tcp.recvspace=262144
+    sudo sysctl -w kern.ipc.maxsockbuf=8388608
 
+    sudo tee -a /etc/sysctl.conf << EOF
+    kern.sysv.shmmax=2147483648
+    kern.sysv.shmmin=1
+    kern.sysv.shmmni=64
+    kern.sysv.shmseg=16
+    kern.sysv.shmall=524288
+    net.inet.tcp.msl=60
+
+    net.local.dgram.recvspace=262144
+    net.local.dgram.maxdgram=16384
+    kern.maxfiles=131072
+    kern.maxfilesperproc=131072
+    net.inet.tcp.sendspace=262144
+    net.inet.tcp.recvspace=262144
+    kern.ipc.maxsockbuf=8388608
+    EOF
+
+    # Step: Configure
+    cat >> ~/.bashrc << EOF
+    ulimit -n 65536 65536  # Increases the number of open files
+    export PGHOST="$(hostname)"
+    EOF
+    ```
+
+    4. fix PYTHONPATH in greenplum-env.sh (installed by brew) to use system python, something like
+    echo export PYTHONPATH=$(pip show psutil | grep Location | awk '{print $2}'):\\\$PYTHONPATH >> #{prefix}/greenplum_path.sh
+
+    5. start a GPDB demo cluster using following command
+    source #{prefix}/greenplum_path.sh
+    cd #{prefix}
+    make -C demo
+    source demo/gpdemo-env.sh
+
+    6. test it out
+    createdb
+    psql
     EOS
-    return s
   end
-
+  
+  test do
+    system "createdb", "test"
+    system "dropdb", "test"
+  end
 end
+
