@@ -48,6 +48,11 @@ class GreenplumDb < Formula
   end
 
   def caveats; <<-EOS.undent
+    This Greenplum Database distribution is intended for basic evaluation 
+    and testing on Mac OS systems. It is not officially supported by Pivotal,
+    and it is not intended for production use. To report issues, please visit
+    https://github.com/greenplum-db/gpdb/issues.
+    
     Congratulations! A copy of GPDB is installed under #{prefix}.
 
     1. enable `Remote Login` under `System Preferences -> Sharing`
