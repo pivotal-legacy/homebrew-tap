@@ -1,11 +1,9 @@
-require 'formula'
-
 class GreenplumDb < Formula
   desc "Greenplum Database"
   homepage "http://greenplum.org"
+  url "https://github.com/greenplum-db/gpdb/archive/5.0.0-beta.3.tar.gz"
+  sha256 "80fa95180e6100400b87a943b287e8f727459d64cf39af19d8240bce23129597"
   head "https://github.com/greenplum-db/gpdb.git"
-  url "https://github.com/greenplum-db/gpdb/archive/5.0.0-beta.2.tar.gz"
-  sha256 "d43e62cf99cd1d2ee9b1e00ad80e4e491defe1cb7cfeecf142ecd60f88bffa29"
 
   depends_on "cmake" => :build # orca build
   depends_on "ninja" => :build # orca build
@@ -41,10 +39,10 @@ class GreenplumDb < Formula
 
     system "make", "install"
     
-    system "mkdir", "#{prefix}/demo"
-    system "cp", "gpAux/gpdemo/demo_cluster.sh", "#{prefix}/demo"
-    system "cp", "gpAux/gpdemo/lalshell", "#{prefix}/demo"
-    system "cp", "gpAux/gpdemo/Makefile", "#{prefix}/demo"
+    mkdir "#{prefix}/demo"
+    cp "gpAux/gpdemo/demo_cluster.sh", "#{prefix}/demo"
+    cp "gpAux/gpdemo/lalshell", "#{prefix}/demo"
+    cp "gpAux/gpdemo/Makefile", "#{prefix}/demo"
   end
 
   def caveats; <<-EOS.undent
@@ -127,4 +125,3 @@ class GreenplumDb < Formula
     system "dropdb", "test"
   end
 end
-
