@@ -41,6 +41,7 @@ class GreenplumDb < Formula
     
     mkdir "#{prefix}/demo"
     cp "gpAux/gpdemo/demo_cluster.sh", "#{prefix}/demo"
+    cp "gpAux/gpdemo/probe_config.sh", "#{prefix}/demo"
     cp "gpAux/gpdemo/lalshell", "#{prefix}/demo"
     cp "gpAux/gpdemo/Makefile", "#{prefix}/demo"
   end
