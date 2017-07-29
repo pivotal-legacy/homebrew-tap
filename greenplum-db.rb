@@ -1,8 +1,8 @@
 class GreenplumDb < Formula
   desc "Greenplum Database"
   homepage "http://greenplum.org"
-  url "https://github.com/greenplum-db/gpdb/archive/5.0.0-beta.3.tar.gz"
-  sha256 "80fa95180e6100400b87a943b287e8f727459d64cf39af19d8240bce23129597"
+  url "https://github.com/greenplum-db/gpdb/archive/5.0.0-beta.5.tar.gz"
+  sha256 "d1b9a1a00b6e07d294eb22dfa8524e0dc5a7ee3b7284710230dc6c5bf4a591e1"
   head "https://github.com/greenplum-db/gpdb.git"
 
   depends_on "cmake" => :build # orca build
