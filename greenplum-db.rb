@@ -1,8 +1,8 @@
 class GreenplumDb < Formula
   desc "Greenplum Database"
   homepage "http://greenplum.org"
-  url "https://github.com/greenplum-db/gpdb/archive/5.0.0-beta.5.tar.gz"
-  sha256 "d1b9a1a00b6e07d294eb22dfa8524e0dc5a7ee3b7284710230dc6c5bf4a591e1"
+  url "https://github.com/greenplum-db/gpdb/archive/5.0.0-beta.6.tar.gz"
+  sha256 "bbed4afdfaea664b610fda362c6cd5318a4f7bbd2a655a2f1de239ab14e10a20"
   head "https://github.com/greenplum-db/gpdb.git"
 
   depends_on "cmake" => :build # orca build
@@ -10,7 +10,7 @@ class GreenplumDb < Formula
   depends_on "libyaml" => :build # --enable-mapreduce
   depends_on "libevent" => :build # gpfdist
   depends_on "apr" => :build # gpperfmon
-  depends_on "apr-util" => :build #gppermon
+  depends_on "apr-util" => :build # gppermon
   depends_on "python" => :run
   depends_on "go" => :optional
   depends_on "gdb" => :optional
@@ -38,7 +38,7 @@ class GreenplumDb < Formula
                           "--prefix=#{prefix}"
 
     system "make", "install"
-    
+
     mkdir "#{prefix}/demo"
     cp "gpAux/gpdemo/demo_cluster.sh", "#{prefix}/demo"
     cp "gpAux/gpdemo/probe_config.sh", "#{prefix}/demo"
@@ -47,11 +47,11 @@ class GreenplumDb < Formula
   end
 
   def caveats; <<-EOS.undent
-    This Greenplum Database distribution is intended for basic evaluation 
+    This Greenplum Database distribution is intended for basic evaluation
     and testing on Mac OS systems. It is not officially supported by Pivotal,
     and it is not intended for production use. To report issues, please visit
     https://github.com/greenplum-db/gpdb/issues.
-    
+
     Congratulations! A copy of GPDB is installed under #{prefix}.
 
     1. enable `Remote Login` under `System Preferences -> Sharing`
@@ -120,7 +120,7 @@ class GreenplumDb < Formula
     psql
     EOS
   end
-  
+
   test do
     system "createdb", "test"
     system "dropdb", "test"
