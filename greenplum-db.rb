@@ -5,13 +5,15 @@ class GreenplumDb < Formula
   sha256 "bbed4afdfaea664b610fda362c6cd5318a4f7bbd2a655a2f1de239ab14e10a20"
   head "https://github.com/greenplum-db/gpdb.git"
 
-  depends_on "cmake" => :build # orca build
-  depends_on "ninja" => :build # orca build
   depends_on "libyaml" => :build # --enable-mapreduce
   depends_on "libevent" => :build # gpfdist
   depends_on "apr" => :build # gpperfmon
   depends_on "apr-util" => :build # gppermon
+
+  depends_on "gporca" => :build # --enable-orca
+
   depends_on "python" => :run
+
   depends_on "go" => :optional
   depends_on "gdb" => :optional
 
@@ -31,8 +33,7 @@ class GreenplumDb < Formula
                              "git+https://github.com/behave/behave@v1.2.4",
                              "pylint"
 
-    system "./configure", "--disable-orca",
-                          "--disable-debug",
+    system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
