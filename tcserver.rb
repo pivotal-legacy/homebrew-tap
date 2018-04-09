@@ -2,54 +2,43 @@ require 'formula'
 
 class Tcserver < Formula
   homepage 'http://tcserver.docs.pivotal.io/index.html'
-  url 'http://public.pivotal.com.s3.amazonaws.com/releases/tcserver/3.2.9.RELEASE/tcserver-3.2.9.RELEASE-developer.tar.gz'
-  sha256 'dc11b2ae496b8e2d15eb317878e2e5b8be82fca8d16ef083aea7461f07fabac1'
-  version "3.2.9"
-  
-  # logs, lib and temp folder need to exist for base template to work
-  skip_clean 'libexec/templates/base/logs'
-  skip_clean 'libexec/templates/base/lib'
-  skip_clean 'libexec/templates/base/temp'
-  
-  def install
-    # Remove Windows scripts
-    rm_rf Dir['**/*.bat']
+  url 'http://public.pivotal.com.s3.amazonaws.com/releases/tcserver/4.0.0.RELEASE/tcserver-4.0.0.RELEASE-developer.tar.gz'
+  sha256 '40da7cc09710de93761ff9fc0fdc7f4be20a744f52872a0aa7469ad964b63e72'
+  version '4.0.0'
 
-    # Install files
-    prefix.install %w{ README.txt licenses/Pivotal_EULA.txt }
+  def install
+    rm_rf Dir['**/*.bat']
+    distDir = "developer-#{version}.RELEASE"
+    %w(README.txt licenses/Pivotal_EULA.txt).each do |readme|
+      prefix.install ["#{distDir}/#{readme}"]
+    end
     libexec.install Dir['*']
-    bin.install_symlink Dir["#{libexec}/*.sh"]
-    
-    # logs, lib and temp folder need to exist for base template to work
-    (libexec/'templates/base/logs').mkpath
-    (libexec/'templates/base/lib').mkpath
-    (libexec/'templates/base/temp').mkpath
+    bin.install_symlink Dir["#{libexec}/#{distDir}/tcserver"]
+    tcsInstancesDir = var.join('tcserver').join('instances')
+    tcsInstancesDir.mkpath
+    IO.write("#{libexec}/#{distDir}/conf/tcserver.properties",
+             "instances.directory=#{tcsInstancesDir}\n", mode: 'a')
   end
 
-  def caveats; <<-EOS.undent
-    By installing, you agree to comply with the license at https://network.pivotal.io/pivotal_software_eula. If you disagree with these terms, please uninstall by typing "brew uninstall tcserver" in your terminal window.
- 
+  def caveats; <<-EOS
+    By installing, you agree to comply with the license at https://network.pivotal.io/pivotal_software_eula.
+    If you disagree with these terms, please uninstall by typing "brew uninstall tcserver" in your terminal window.
+
     Usage:
-       To create a new tc Server instance (in current directory):
-          > tcruntime-instance.sh create myinstance
-          
-       To create a new tc Server instance with Spring Insight monitoring:
-       
-          Retrieve the Spring Insight Developer template from the Template Repository:
-             > tcruntime-admin.sh get-template spring-insight-developer
-          Create the instance with the Spring Insight template name:
-             > tcruntime-instance.sh create myinstance -t insight 
-       
-       To control tc Server instance (in current directory):
-          > tcruntime-ctl.sh myinstance start
-          
+       To create a new tc Server instance:
+          > tcserver create myinstance
+
+       To control tc Server instance:
+          > tcserver start|stop|restart|status myinstance
+
     Documentation:
        http://tcserver.docs.pivotal.io/
-    
+
     Open Source License:
        https://network.pivotal.io/open-source
 
-    For inquiries about commercial licensing, support, training, and consulting, please contact us at tcserver@pivotal.io
+    For inquiries about commercial licensing, support, training, and consulting, please contact us at:
+       mailto:tcserver@pivotal.io
     EOS
   end
 end
