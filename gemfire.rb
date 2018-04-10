@@ -18,7 +18,7 @@ class Gemfire < Formula
     (bin/"gfsh").write_env_script libexec/"bin/gfsh", Language::Java.java_home_env("1.8")
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     By installing, you agree to comply with the license at https://network.pivotal.io/pivotal_software_eula. If you disagree with these terms, please uninstall by typing "brew uninstall gemfire" in your terminal window.
 
     Usage:
