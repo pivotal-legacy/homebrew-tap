@@ -22,7 +22,7 @@ class Springxd < Formula
     bin.install_symlink Dir["#{libexec}/hsqldb/bin/*"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
 
    Usage:
     To start XD single node (runs in foreground):
