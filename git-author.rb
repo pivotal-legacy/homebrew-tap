@@ -12,7 +12,7 @@ class GitAuthor < Formula
     bin.install "git-author"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     export GIT_TOGETHER_NO_SIGNOFF=1 to ~/.bash_profile
     to disable --signoff added by git-together commit
     EOS

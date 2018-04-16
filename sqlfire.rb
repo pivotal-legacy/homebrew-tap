@@ -16,7 +16,7 @@ class Sqlfire < Formula
     bin.write_exec_script libexec/'bin/sqlf'
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     By installing, you agree to comply with the license at http://gopivotal.com/products/software-license-agreement. If you disagree with these terms, please uninstall by typing "brew uninstall sqlfire" in your terminal window.
  
     Usage:
