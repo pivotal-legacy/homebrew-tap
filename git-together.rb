@@ -1,9 +1,13 @@
 class GitTogether < Formula
+  VERSION = "0.1.0-alpha.13"
+
   desc "Better commit attribution while pairing."
-  homepage "https://github.com/kejadlen/git-together/tree/v0.1.0-alpha.11"
-  version "0.1.0-alpha.11"
-  url "https://github.com/kejadlen/git-together/releases/download/v#{version}/git-together-v#{version}-x86_64-apple-darwin.tar.gz"
-  sha256 "00a6fd23d380046e3ebe8f16bd3afc78b996240266a1c692e38f82d63fc98ea9"
+  homepage "https://github.com/kejadlen/git-together"
+  version VERSION
+  url "https://github.com/kejadlen/git-together/releases/download/v#{VERSION}/git-together-v#{VERSION}-x86_64-apple-darwin.tar.gz"
+  sha256 "072ad72d40c6771d172b12c6e5cb47fcc4190ea5b72faa99025774c675b15a13"
+
+  depends_on "libssh2" => :run
 
   def install
     bin.install "git-together"
