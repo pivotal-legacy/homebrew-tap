@@ -2,9 +2,9 @@ require 'formula'
 
 class Gemfire < Formula
   homepage 'http://www.pivotal.io/big-data/pivotal-gemfire'
-  url 'http://download.pivotal.com.s3.amazonaws.com/gemfire/9.4.0/pivotal-gemfire-9.4.0.zip'
-  sha256 'db37c0590e9210d53b87343710682e733a86f71d36dff53b4b145dccbdac8e65'
-  version '9.4.0'
+  url 'http://download.pivotal.com.s3.amazonaws.com/gemfire/9.5.0/pivotal-gemfire-9.5.0.zip'
+  sha256 '66dfc89a94aa9ea8e2df0841249af87a97d4f7ed60822cf846a2aa32b5ba70cd'
+  version '9.5.0'
   
   bottle :unneeded
 
