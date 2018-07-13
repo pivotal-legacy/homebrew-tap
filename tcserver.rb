@@ -2,9 +2,9 @@ require 'formula'
 
 class Tcserver < Formula
   homepage 'http://tcserver.docs.pivotal.io/index.html'
-  url 'http://public.pivotal.com.s3.amazonaws.com/releases/tcserver/4.0.1.RELEASE/tcserver-4.0.1.RELEASE-developer.tar.gz'
-  sha256 '2f8b6898f7e84b75b781e3bd65ce0f972940799a896cca6959cf8c03616976f3'
-  version '4.0.1'
+  url 'http://public.pivotal.com.s3.amazonaws.com/releases/tcserver/4.0.2.RELEASE/tcserver-4.0.2.RELEASE-developer.tar.gz'
+  sha256 'ad6c96834dfbd2e414ab5ec416b54130903cd1206dddb6df20d84c8fbba6d739'
+  version '4.0.2'
 
   def install
     rm_rf Dir['**/*.bat']
