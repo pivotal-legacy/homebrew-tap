@@ -1,8 +1,8 @@
 class GitAuthor < Formula
   desc "The git-author to use git template to include multiple contributors"
   homepage "https://github.com/pivotal/git-author"
-  url "https://github.com/pivotal/git-author/archive/v1.0.2.tar.gz"
-  sha256 "40f75986f07a1904eadb7f3c5e9fca419f5e87e3928ed78b8df85567e5212f02"
+  url "https://github.com/pivotal/git-author/archive/v1.0.3.tar.gz"
+  sha256 "a46797939b9763fef061c5e87305f3360e33ae455508f3448d2ea6753c3da824"
   depends_on "git-together"
 
   def install
