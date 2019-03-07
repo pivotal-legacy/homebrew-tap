@@ -14,6 +14,9 @@ class GitAuthor < Formula
   def caveats; <<-EOS
     export GIT_TOGETHER_NO_SIGNOFF=1 to ~/.bash_profile
     to disable --signoff added by git-together commit
+
+    Please note the setup is incomplete, you must follow instructions in
+    "https://github.com/pivotal/git-author".
   EOS
   end
 
