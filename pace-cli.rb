@@ -2,9 +2,9 @@ require 'formula'
 
 class PaceCli < Formula
   homepage 'https://github.com/Pivotal-Field-Engineering/pace-builder'
-  version "1.2"
+  version "1.5"
   url "https://github.com/Pivotal-Field-Engineering/pace-builder/releases/download/v#{version}/pace-darwin"
-  sha256 "fed9bced58d7e1aeb3d46f303066be3b3c2f7065e1915da611cd82c7b61eb5ff"
+  sha256 "af32d8eb69d3371955bd823a8ad56d18bcaf0ca4353d64c02397bfc9a647ff0b"
 
   depends_on :arch => :x86_64
 
