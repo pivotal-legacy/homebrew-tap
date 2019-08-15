@@ -3,7 +3,7 @@ require 'formula'
 class Tcserver < Formula
   homepage 'http://tcserver.docs.pivotal.io/index.html'
   url 'https://s3.amazonaws.com/public.pivotal.com/releases/tcserver/4.0.8.RELEASE/tcserver-4.0.8.RELEASE-developer.tar.gz'
-  sha256 '0ebeb9d6e9bf7de30fddc8617acd0a4e78392338604ff84036e6fbe456d03cc6'
+  sha256 '186aec7af8efa220ac35596abe40330f945c1fc2c5ccf85d926acf8a71bc4a33'
   version '4.0.8'
 
   def install
