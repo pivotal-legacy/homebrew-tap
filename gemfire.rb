@@ -3,7 +3,7 @@ require 'formula'
 class Gemfire < Formula
   homepage 'http://www.pivotal.io/big-data/pivotal-gemfire'
   url 'http://download.pivotal.com.s3-us-west-2.amazonaws.com/gemfire/9.9.0/pivotal-gemfire-9.9.0.tgz'
-  sha256 'c21f039145adaa2502357fe9cef0ab27cddd6b99ebb4fb24c43644fe7054e051'
+  sha256 '49f274fc00d393487800aa5ea13ab6f6373211e883fb678221232e048e044e44'
   version '9.9.0'
   
   bottle :unneeded
