@@ -3,7 +3,7 @@ require 'formula'
 class GemfireAT98 < Formula
   homepage 'http://www.pivotal.io/big-data/pivotal-gemfire'
   url 'http://download.pivotal.com.s3.amazonaws.com/gemfire/9.8.7/pivotal-gemfire-9.8.7.tgz'
-  sha256 '70a252d81b7f963fa628bc0ba0ee6c13b6bab79f8b89841895f4b514c2b8b1d4'
+  sha256 '1e7bbaeb1a0ad157d46ebff96e81a89543db6b479b12ea06b0d33ad3b54d473e'
   version '9.8.7'
   
   bottle :unneeded
