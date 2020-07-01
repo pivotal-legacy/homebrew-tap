@@ -9,7 +9,7 @@ class Tcserver < Formula
   def install
     rm_rf Dir['**/*.bat']
     distDir = "developer-#{version}.RELEASE"
-    %w(README.txt licenses/Pivotal_EULA.txt).each do |readme|
+    %w(README.txt licenses/VMware_EULA.txt).each do |readme|
       prefix.install ["#{distDir}/#{readme}"]
     end
     libexec.install Dir['*']
