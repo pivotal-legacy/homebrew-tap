@@ -21,7 +21,7 @@ class Tcserver < Formula
   end
 
   def caveats; <<-EOS
-    By installing, you agree to comply with the license at https://network.pivotal.io/pivotal_software_eula.
+    By installing, you agree to comply with the license at https://network.pivotal.io/legal_documents/vmware_eula.
     If you disagree with these terms, please uninstall by typing "brew uninstall tcserver" in your terminal window.
 
     Usage:
@@ -32,7 +32,7 @@ class Tcserver < Formula
           > tcserver start|stop|restart|status myinstance
 
     Documentation:
-       http://tcserver.docs.pivotal.io/
+       https://tcserver.docs.pivotal.io/
 
     Open Source License:
        https://network.pivotal.io/open-source
