@@ -12,7 +12,7 @@ class Gemfire < Formula
 
   def install
     rm_f "bin/gfsh.bat"
-    prefix.install %w{ PVMware-EULA open_source_licenses.txt }
+    prefix.install %w{ VMware-EULA open_source_licenses.txt }
     bash_completion.install "bin/gfsh-completion.bash" => "gfsh"
     libexec.install Dir["*"]
     (bin/"gfsh").write_env_script libexec/"bin/gfsh", Language::Java.java_home_env("1.8")
