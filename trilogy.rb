@@ -6,7 +6,7 @@ class Trilogy < Formula
   url "https://github.com/pivotal/trilogy/releases/download/v#{version}/trilogy-#{version}-mac-linux.tgz"
   sha256 "1c6f7039da26f0f909cf4daf7b73c9a91f2241c4108a1cdeb072fb5b3732378e"
 
-  depends_on :java
+  depends_on "openjdk"
 
   def install
     bin.install "trilogy"
