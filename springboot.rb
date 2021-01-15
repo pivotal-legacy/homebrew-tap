@@ -7,17 +7,21 @@ class Springboot < Formula
   sha256 '6d7f71f0472a71f8b35ef3759e1d0368b52c9e853e0d1cc2325a8faed45d58b8'
   head 'https://github.com/spring-projects/spring-boot.git'
 
-  ohai "We've Moved!"
+  if build.head?
+    depends_on 'maven' => :build
+  end
 
-  opoo "Spring Boot has relocated to spring-io/tap"
-  opoo ""
+  def install
+    if build.head?
+      Dir.chdir('spring-boot-cli') { system 'mvn -U -DskipTests=true package' }
+      root = 'spring-boot-cli/target/spring-boot-cli-*-bin/spring-*'
+    else
+      root = '.'
+    end
 
-  odie """To upgrade Spring Boot, retap it with:
-    brew tap spring-io/tap
-    brew uninstall springboot
-    brew install spring-boot"""
-
+    bin.install Dir["#{root}/bin/spring"]
+    lib.install Dir["#{root}/lib/spring-boot-cli-*.jar"]
+    bash_completion.install Dir["#{root}/shell-completion/bash/spring"]
+    zsh_completion.install Dir["#{root}/shell-completion/zsh/_spring"]
+  end
 end
-
-
-
