@@ -12,16 +12,14 @@ class Springboot < Formula
   end
 
   def install
-    if build.head?
-      Dir.chdir('spring-boot-cli') { system 'mvn -U -DskipTests=true package' }
-      root = 'spring-boot-cli/target/spring-boot-cli-*-bin/spring-*'
-    else
-      root = '.'
-    end
+    ohai "We've Moved!"
 
-    bin.install Dir["#{root}/bin/spring"]
-    lib.install Dir["#{root}/lib/spring-boot-cli-*.jar"]
-    bash_completion.install Dir["#{root}/shell-completion/bash/spring"]
-    zsh_completion.install Dir["#{root}/shell-completion/zsh/_spring"]
+    opoo "Spring Boot has relocated to spring-io/tap"
+    opoo ""
+
+    odie """To upgrade Spring Boot, retap it with:
+      brew tap spring-io/tap
+      brew uninstall springboot
+      brew install spring-boot"""
   end
 end
