@@ -7,8 +7,8 @@ class Tcserver < Formula
   homepage 'http://tcserver.docs.pivotal.io/index.html'
   # brew needs something to download and since the bits are no longer available this allows that process to pass 
   # allowing the message to be presented to the user
-  url 'http://tcserver.docs.pivotal.io/index.html'
-  sha256 'df2c8b64b2e3e06a060f76f1f0f7bf9e668040e19324533a24e19a0976dab8b7'
+  url 'https://github.com/wesschlichter/homebrew-tap/blob/4081dc9d409f181835876dc723a7275b7a42b390/README-tcserver.md'
+  sha256 '7342774fb3828724bff334b67a070459376fa5e13519a8c3567ca0e12902faae'
   # This causes brew to update to show the error message.
   version '4.1.9999'
 
