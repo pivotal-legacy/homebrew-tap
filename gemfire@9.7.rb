@@ -1,32 +1,20 @@
 require 'formula'
 
-class GemfireAT97 < Formula
-  homepage 'http://www.pivotal.io/big-data/pivotal-gemfire'
-  url 'http://download.pivotal.com.s3.amazonaws.com/gemfire/9.7.6/pivotal-gemfire-9.7.6.tgz'
-  sha256 '413200302867faf8d1a0de7b1174ede173403d186d99901cd66370090c8ccad5'
-  version '9.7.6'
-  
-  bottle :unneeded
+# The GemFire homebrew tap has been decommissioned. 
+# Please visit https://network.tanzu.vmware.com/ to download
 
-  depends_on "openjdk@8"
+class GemfireAT97 < Formula
+  homepage 'https://gemfire.docs.pivotal.io/910/gemfire/about_gemfire.html'
+  # brew needs something to download and since the bits are no longer available this allows that process to pass 
+  # allowing the message to be presented to the user
+  url 'https://raw.githubusercontent.com/pivotal-legacy/homebrew-tap/7e8579706684115d90ce95dfcc9a15a84bbc26a9/README-gemfire.md'
+  sha256 '70a297b5c1a5195a40675f1e2fb880470528e53b837a9e9daebeed5c3110e6a7'
+  version '9.7.6'
 
   def install
-    rm_f "bin/gfsh.bat"
-    prefix.install %w{ Pivotal-EULA Pivotal-OSL }
-    bash_completion.install "bin/gfsh-completion.bash" => "gfsh"
-    libexec.install Dir["*"]
-    (bin/"gfsh").write_env_script libexec/"bin/gfsh", Language::Java.java_home_env("1.8")
-  end
+    ohai "GemFire tap is no longer available!"
 
-  def caveats; <<~EOS
-    By installing, you agree to comply with the license at https://network.pivotal.io/pivotal_software_eula. If you disagree with these terms, please uninstall by typing "brew uninstall gemfire" in your terminal window.
+    odie "Please download and install from Tanzu Network https://network.tanzu.vmware.com/"
 
-    Usage:
-       gfsh
-
-    Documentation:
-       http://gemfire.docs.pivotal.io/index.html
-
-    EOS
   end
 end
