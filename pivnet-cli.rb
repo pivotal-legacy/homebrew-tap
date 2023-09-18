@@ -6,8 +6,6 @@ class PivnetCli < Formula
   url "https://github.com/pivotal-cf/pivnet-cli/releases/download/v#{version}/pivnet-darwin-amd64-#{version}"
   sha256 "6eaadefe76eb96342b0ee8909625027b157e06d417e9a5ed8b413435c876351f"
 
-  depends_on :arch => :x86_64
-
   def install
     mv "pivnet-darwin-amd64-#{version}", "pivnet"
     bin.install "pivnet"
